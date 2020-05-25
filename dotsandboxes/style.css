@@ -1,0 +1,23 @@
+.container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.h1-border2 {
+  width: 80px;
+}
+
+.h1-border {
+  background: black;
+  height: 6px;
+  /* border-radius: 50%; */
+  background: #505050;
+  
+}
+
+.hor-border {
+  width: 5px;
+  height: 80px;
+}

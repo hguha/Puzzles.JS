@@ -1,0 +1,39 @@
+body {
+    text-align: center;
+    overflow: hidden;
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    background: maroon;
+}
+
+.fa {
+    font-size: 50px;
+}
+
+tr:nth-child(even) td:nth-child(odd), 
+tr:nth-child(odd) td:nth-child(even) {
+    background: #3c3c3c;
+    color: white;
+}
+
+td:hover {
+    background: gray !important;
+    cursor: pointer;
+}

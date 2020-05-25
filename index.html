@@ -1,0 +1,109 @@
+<head>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #games {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            border: 1px solid black;
+            height: 100px;
+            width: 25%;
+            padding: 1%;
+            margin: 1%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            font-size: 1.3em;
+            box-shadow: 1px 1px 5px;
+        }
+
+        .card:hover {
+            background: gray;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="games"></div>
+
+<script>
+    var el = document.getElementById("games");
+    var games = [
+        {
+            name: "checkers",
+            description: "a cool game",
+            icon: "chess-board",
+            filter: "one"
+        },
+        {
+            name: "chess",
+            description: "a cool game",
+            icon: "chess",
+            filter: "one"
+        },
+        {
+            name: "connect4",
+            description: "a cool game",
+            icon: "home",
+            filter: "one"
+        },
+        {
+            name: "dotsandboxes",
+            description: "a cool game",
+            icon: "border-none",
+            filter: "one"
+        },
+        {
+            name: "minesweeper",
+            description: "a cool game",
+            icon: "home",
+            filter: "one"
+        },
+        {
+            name: "rubikscube",
+            description: "a cool game",
+            icon: "home",
+            filter: "one"
+        },
+        {
+            name: "sudoku",
+            description: "a cool game",
+            icon: "home",
+            filter: "one"
+        },
+        {
+            name: "tetris",
+            description: "a cool game",
+            icon: "home",
+            filter: "one"
+        },
+        {
+            name: "tictactoe",
+            description: "a cool game",
+            icon: "home",
+            filter: "one"
+        },
+        
+    ];
+    var html = "";
+    for(let i = 0;i < games.length; i++) {
+        html+= `
+        <div class="card" onclick="window.location.href='${games[i].name}/index.html'">
+        ${games[i].name.toUpperCase()}
+        </div>
+        `
+    }
+    el.innerHTML = html;
+</script>
+</body>

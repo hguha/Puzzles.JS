@@ -1,0 +1,90 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    margin: 0;
+    overflow: hidden;
+}
+
+#instructions {
+    background: lightgray;
+    width: 30%;
+    height: 100vh;
+    padding: 5% 1% 0 1%;
+    text-align: left;
+}
+
+#content {
+    width: 70%;
+    padding: 5% 1% 0 1%;
+    height: 85vh;
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    height: 60%;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+#keypad-container {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+}
+
+#keypad .tile {
+    background: lightgray;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.tile {
+    font-size: 25px;
+}
+
+.options button {
+    font-size: 15px;
+    padding: 1%;
+    border: 1px solid #3c3c3c;
+    background: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.options button:hover {
+    background: #3c3c3c;
+    color: white
+}
+
+tr:nth-child(1) {
+    border-top: 5px solid black;
+}
+
+td:nth-child(1) {
+    border-left: 5px solid black;
+}
+
+tr:nth-child(3n) {
+    border-bottom: 5px solid black;
+}
+
+td:nth-child(3n) {
+    border-right: 5px solid black;
+}
+
+
+td:hover {
+    background: gray !important;
+    cursor: pointer;
+}

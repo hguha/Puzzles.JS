@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    overflow: hidden;
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    background: gray;
+}
+
+.fa {
+    font-size: 50px;
+    transition: 0.5s;
+}
+
+.animate {
+    transform: translateY(-500px);
+}
+
+td:hover {
+    background: gray !important;
+    cursor: pointer;
+}

@@ -1,0 +1,55 @@
+.topbar {
+    background: #c3c3c3;
+    padding: 10px;
+}
+.header {
+    text-align: center;
+}
+#title {
+    font-size: 1.7em;
+    margin: 0;
+    padding: 0;
+}
+.nav-list {
+    padding: 0;
+    text-align: center;
+}
+.nav-item {
+    display: inline;
+    width: 10em;
+}
+.nav-item input {
+    width: 50px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.button-style {
+    color: #FFF;
+    background-color: #08F;
+}
+#grid {
+    text-align: center;
+    white-space: nowrap;
+}
+#instructions h2 {
+    margin-left: 40px;
+}
+.cell {
+    width: 1.6em;
+    height: 1.6em;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    text-align: center;
+    vertical-align: bottom;
+    background: #666;
+}
+.cell:hover {
+    background: #CCC;
+    border-color: #333;
+}
+.cell:active {
+    background: #AAA;
+}

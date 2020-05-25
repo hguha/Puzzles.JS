@@ -1,0 +1,45 @@
+<head>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <div id="instructions">
+        <h1 style="text-align: center; padding-top: 15%;">WELCOME TO SUDOKU</h1>
+        <hr>
+        <ul>
+            <h2>To Use:</h2>
+            <li>Click on a square in the board(the selected square will be highlighted)</li>
+            <li>Use the on-screen keypad or the numbers on your keyboard to fill in a square</li>
+            <li>Use the arrow keys on your keyboard to move the selection</li>
+            <li>Click backspace on your keyboard to clear a square</li>
+            <h2>Buttons:</h2>
+            <li><b>Check</b> - will check if the current sudoku is solved</li>
+            <li><b>Solve</b> - will solve the puzzle using backtracking</li>
+            <li><b>Generate</b> - will randomly create a solvable sudoku for you to try!</li>
+        </ul>
+        <hr>
+        <em>Created by Hirsh Guha</em>
+    </div>
+
+
+    <div id="content">
+        <div id="messages">
+            <br>
+        </div>
+    
+        <div id=board-container>
+        </div>
+        KEYPAD
+        <div id=keypad-container>
+            <table id="keypad">
+            </table>
+        </div>
+        <div class="options">
+            <button onclick="check()">Check</button>
+            <button onclick="board.solve()">Solve</button>
+            <button onclick="generate()">Generate</button>
+        </div>
+    </div>
+    <script src='../board.js'></script>
+    <script src='script.js'></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>

@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+    /* overflow: hidden; */
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+}
+
+.fa {
+    font-size: 50px;
+}
+
+td:hover {
+    background: gray !important;
+    cursor: pointer;
+}

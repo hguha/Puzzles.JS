@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Minesweeper</title>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="minesweeper.css">
+</head>
+
+<body>
+        <div class="topbar">
+    		<div class="header">
+    			<h1 id="title">Minesweeper</h1>
+    		</div>
+    		<nav class="nav">
+    			<ul class="nav-list">
+    				<li class="nav-item">
+    					<label for="rows">Rows:</label>
+    					<input type="number" name="rows" id="rows" min="2" max="100" value="10">
+    				</li>
+    				<li class="nav-item">
+    					<label for="cols">Columns:</label>
+    					<input type="number" name="cols" id="cols" min="2" max="100" value="10">
+    				</li>
+    				<li class="nav-item">
+    					<label for="mines">Mines:</label>
+    					<input type="number" name="mines" id="mines" min="1" value="10">
+    				</li>
+                    <br>
+    				<li class="nav-item">
+    					<button id="reset" class="pure-button button-style" onclick="gameplay.reset()">Reset</button>
+    				</li>
+    			</ul>
+    		</nav>
+    	</div>
+        <!-- I think the board game will go here -->
+        <div id="grid"></div>
+    	<div id="instructions">
+    		<h2>Instructions:</h2>
+    		<ul>
+    			<li>Left-Click a cell to reveal it.</li>
+    			<li>If the clicked cell contains a mine, you lose </li>
+    			<li>If the clicked cell does not contain a mine, it will reveal the number of mines adjadent to it</li>
+    			<li>Right-Click a cell to flag a cell as a mine</li>
+    			<li>If all non-mines are clicked, you win!</li>
+    		</ul>
+        </div>
+		<script type="text/javascript" src="Tile.js"></script>
+		<script type="text/javascript" src="Board.js"></script>
+		<script type="text/javascript" src="Gameplay.js"></script>
+</body>
+</html>
