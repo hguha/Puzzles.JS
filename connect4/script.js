@@ -76,7 +76,7 @@ class Checkers extends Board {
         }
         //if the row has some stuff
         else {
-            for(let i = 0; i <this.rows; i++) {
+            for(let i = 0; i < rows; i++) {
                 if(this.board[i][col]) {
                     row = i-1;
                     break;
@@ -92,18 +92,25 @@ class Checkers extends Board {
         });
 
         if(this.checkWin()) {
-            alert(this.turn > 0 ? "YELLOW" : "RED" +" has won");
+            alert((this.turn > 0 ? "YELLOW" : "RED") + " has won");
         }
-        else { //change turn
-            this.turn = -this.turn;
-            var color = this.turn == -1 ? "red" : "yellow";
-            $(".player").css("color", color);    
-        }
+
+        this.turn = -this.turn;
+        var color = this.turn == -1 ? "red" : "yellow";
+        $(".player, .drop").css("color", color);  
     }
 
     tile(player) {
         var color = player == -1 ? "red" : "yellow";
         return `<i style=color:${color} class="fa fa-circle animate"></i>`
+    }
+
+    drawBoard() {
+        super.drawBoard();
+        let html;
+        for(let i = 0; i < this.board[0].length; i++) 
+            html += `<td class="drop" onclick="board.selectPiece(0,${i})"><i class="fa fa-circle"><i></td>`
+        $("#board").prepend("<tr>"+html+"</tr>")
     }
 }
 
@@ -112,7 +119,6 @@ function updateBoard() {
     cols = $("#cols")[0].value;
     n = $("#n")[0].value;
     let grid = Array(Number(rows)).fill().map(() => Array(Number(cols)).fill(0));
-    console.log(grid);
     board = new Checkers(grid, n);
     board.drawBoard();
 }
