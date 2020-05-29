@@ -1,43 +1,66 @@
 var board;
 class Checkers extends Board {
-    constructor(board) {
+    constructor(board, n) {
         super(board);
         this.turn = -1;
+        this.n = n;
     }
 
     fillSquare(row, col) {
         return "";
     }
 
-    checkWin(board, player) {
-        function chkLine(a,b,c,d,player) {
-            return ((a !== 0) && (a ==b) && (a == c) && (a == d));
-        }
-
+    checkWin() {
+        let row = this.board.length
+        let col = this.board[0].length;
         // Check vertical
-        for (let r = 0; r < 3; r++)
-            for (let c = 0; c < 7; c++)
-                if (chkLine(board[r][c], board[r+1][c], board[r+2][c], board[r+3][c], player))
-                    return true;
-    
-        // Check horizontal
-        for (let r = 0; r < 6; r++)
-            for (let c = 0; c < 4; c++)
-                if (chkLine(board[r][c], board[r][c+1], board[r][c+2], board[r][c+3], player))
-                    return true;
-    
-        // Check right diag
-        for (let r = 0; r < 3; r++)
-            for (let c = 0; c < 4; c++)
-                if (chkLine(board[r][c], board[r+1][c+1], board[r+2][c+2], board[r+3][c+3], player))
-                    return true;
-    
-        // Check left diag
-        for (let r = 3; r < 6; r++)
-            for (let c = 0; c < 4; c++)
-                if (chkLine(board[r][c], board[r-1][c+1], board[r-2][c+2], board[r-3][c+3], player))
-                    return true;
+        for (let r = 0; r < row - this.n + 1; r++)
+            for (let c = 0; c < col; c++) {
+                let count = 0;
+                for(let i = 0; i < this.n; i++) {
+                    if(this.board[r][c] != 0 && this.board[r+i][c] == this.board[r][c]) {
+                        count++;
+                        if(count == this.n) return true;
+                    }
+                }
+            }
 
+        //check horizontal
+        for (let r = 0; r < row; r++)
+            for (let c = 0; c < col - this.n + 1; c++) {
+                let count = 0;
+                for(let i = 0; i < this.n; i++) {
+                    if(this.board[r][c] != 0 && this.board[r][c+i] == this.board[r][c]) {
+                        count++;
+                        if(count == this.n) return true;
+                    }
+                }
+            }
+
+        //check right diag
+        for (let r = 0; r < row - this.n + 1; r++)
+            for (let c = 0; c < col - this.n + 1; c++) {
+                let count = 0;
+                for(let i = 0; i < this.n; i++) {
+                    if(this.board[r][c] != 0 && this.board[r+i][c+i] == this.board[r][c]) {
+                        count++;
+                        if(count == this.n) return true;
+                    }
+                }
+            }
+        
+         //check left diag
+        for (let r = row - this.n + 1; r < row; r++) {
+            for (let c = 0; c < col - this.n + 1; c++) {
+                let count = 0;
+                for(let i = 0; i < this.n; i++) {
+                    if(this.board[r][c] != 0 && this.board[r-i][c+i] == this.board[r][c]) {
+                        count++;
+                        if(count == this.n) return true;
+                    }
+                }
+            }
+        }   
         return false;
     }
 
@@ -46,13 +69,14 @@ class Checkers extends Board {
         let loc = 0;
         if(this.board[0][col]) return;
 
+        let rows = this.board.length
         //if the row is empty
-        if(!this.board[5][col]) {
-            row = 5;
+        if(!this.board[rows-1][col]) {
+            row = rows-1;
         }
         //if the row has some stuff
         else {
-            for(let i = 0; i <6; i++) {
+            for(let i = 0; i <this.rows; i++) {
                 if(this.board[i][col]) {
                     row = i-1;
                     break;
@@ -67,10 +91,14 @@ class Checkers extends Board {
             }, 0);
         });
 
-        if(this.checkWin(this.board, this.turn)) {
-            console.log(this.turn, "won");
+        if(this.checkWin()) {
+            alert(this.turn > 0 ? "YELLOW" : "RED" +" has won");
         }
-        this.turn = -this.turn;
+        else { //change turn
+            this.turn = -this.turn;
+            var color = this.turn == -1 ? "red" : "yellow";
+            $(".player").css("color", color);    
+        }
     }
 
     tile(player) {
@@ -79,9 +107,18 @@ class Checkers extends Board {
     }
 }
 
+function updateBoard() {
+    rows = $("#rows")[0].value;
+    cols = $("#cols")[0].value;
+    n = $("#n")[0].value;
+    let grid = Array(Number(rows)).fill().map(() => Array(Number(cols)).fill(0));
+    console.log(grid);
+    board = new Checkers(grid, n);
+    board.drawBoard();
+}
 
 window.onload = () => {
     let grid = Array(6).fill().map(() => Array(7).fill(0));
-    board = new Checkers(grid);
+    board = new Checkers(grid, 4);
     board.drawBoard();
 }
