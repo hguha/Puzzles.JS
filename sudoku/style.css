@@ -16,8 +16,7 @@ body {
 
 #content {
     width: 70%;
-    padding: 5% 1% 0 1%;
-    height: 85vh;
+    height: 100vh;
 }
 
 #board-container {
@@ -25,7 +24,6 @@ body {
     justify-content: center;
     height: 60%;
     align-items: center;
-    margin-bottom: 10%;
 }
 
 #keypad-container {
