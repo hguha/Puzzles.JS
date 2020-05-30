@@ -28,6 +28,7 @@ class TicTacToe extends Board {
         else {
             this.turn = -this.turn;
         }
+        $("#messages").html(`Player ${this.turn > 0 ? 2 : 1}'s Turn`)
     }
 
     gameOver(state, player) {
@@ -95,16 +96,18 @@ class TicTacToe extends Board {
 }
 
 function players(num) {
+    $(".chosen").removeClass("chosen");
     if(num == 1) {
         board.ai = true;
-        $("#messages").html("One Player...")
+        $("#one").addClass("chosen");
     }
     else {
         board.ai = false;
-        $("#messages").html("Two Player...")
+        $("#two").addClass("chosen");
     }
 
     board.clear();
+    board.turn = -1;
 }
 
 window.onload = () => {

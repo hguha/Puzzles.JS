@@ -5,10 +5,12 @@
 </head>
 
 <body>
-    <div id="messages">
-        Two Player...
-    </div><br>
-    <button onclick="players(1)">One Player</button> <button  onclick="players(2)">Two Player</button>
+    <h1><div id="messages">
+        Player 1's Turn
+    </div></h1>
+    <br>
+    <button id="one" onclick="players(1)">One Player</button> 
+    <button id="two" class="chosen" onclick="players(2)">Two Player</button>
     <div id=board-container>
     </div>
    
