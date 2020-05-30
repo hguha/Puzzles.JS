@@ -6,7 +6,7 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .top {
@@ -26,4 +26,20 @@ body {
   width: 5px;
   height: 80px;
   cursor: pointer;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+}
+
+.score table, .score tr, .score td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 3%;
+}
+
+.score table {
+  width: 50%;
 }
